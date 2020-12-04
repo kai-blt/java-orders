@@ -1,10 +1,13 @@
 package local.kaiblt.ordersapp.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "agents")
 public class Agent {
+    //***** Primary Key *****//
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long agentcode;
@@ -15,6 +18,12 @@ public class Agent {
     private String phone;
     private String country;
 
+    //***** Table Relationships *****//
+    //One to many relationship with the Customers Table
+    @OneToMany(mappedBy = "agent", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Customer> customers = new ArrayList<>();
+
+    //***** Constructors *****//
     public Agent() {
         //default constructor for JPA
     }
@@ -26,6 +35,7 @@ public class Agent {
         this.country = country;
     }
 
+    //***** Getters and Setters *****//
     public long getAgentcode() {
         return agentcode;
     }

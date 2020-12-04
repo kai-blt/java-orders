@@ -1,14 +1,14 @@
-package com.lambdaschool.orders;
+package local.kaiblt.ordersapp;
 
 import com.github.javafaker.Faker;
-import com.lambdaschool.orders.models.Agent;
-import com.lambdaschool.orders.models.Customer;
-import com.lambdaschool.orders.models.Order;
-import com.lambdaschool.orders.models.Payment;
-import com.lambdaschool.orders.repositories.AgentsRepository;
-import com.lambdaschool.orders.repositories.CustomersRepository;
-import com.lambdaschool.orders.repositories.OrdersRepository;
-import com.lambdaschool.orders.repositories.PaymentRepository;
+import local.kaiblt.ordersapp.models.Agent;
+import local.kaiblt.ordersapp.models.Customer;
+import local.kaiblt.ordersapp.models.Order;
+import local.kaiblt.ordersapp.models.Payment;
+import local.kaiblt.ordersapp.repositories.AgentsRepository;
+import local.kaiblt.ordersapp.repositories.CustomersRepository;
+import local.kaiblt.ordersapp.repositories.OrdersRepository;
+import local.kaiblt.ordersapp.repositories.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

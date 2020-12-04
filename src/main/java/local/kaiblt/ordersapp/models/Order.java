@@ -1,10 +1,13 @@
 package local.kaiblt.ordersapp.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders")
 public class Order {
+    //***** Primary Key *****//
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long ordernum;
@@ -14,6 +17,22 @@ public class Order {
     private long custcode;
     private String orderdescription;
 
+    //***** Table Relationships *****//
+
+    //Many to one relationship with the Customer Table
+    @ManyToOne
+    @JoinColumn(name = "custcode", nullable = false)
+    private Customer customer;
+
+    //Many to many rel with Payments Table
+    @ManyToMany
+    @JoinTable(name = "orderspayments",
+        joinColumns = @JoinColumn(name = "ordernum"),
+        inverseJoinColumns = @JoinColumn(name = "custcode"))
+    private Set<Payment> payments = new HashSet<>();
+
+
+    //***** Constructors *****//
     public Order() {
         //default constructor for JPA
     }
@@ -25,6 +44,7 @@ public class Order {
         this.orderdescription = orderdescription;
     }
 
+    //***** Getters and Setters *****//
     public long getOrdernum() {
         return ordernum;
     }
