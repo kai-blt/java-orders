@@ -22,7 +22,6 @@ public class Customer {
     private double paymentamt;
     private double outstandingamt;
     private String phone;
-    private long agentcode;
 
     //***** Table Relationships *****//
     //Many to One relationship with Agent Table
@@ -38,7 +37,7 @@ public class Customer {
         //default constructor for the JPA
     }
 
-    public Customer(String custname, String custcity, String workingarea, String custcountry, String grade, double openingamt, double receiveamt, double paymentamt, double outstandingamt, String phone, long agentcode) {
+    public Customer(String custname, String custcity, String workingarea, String custcountry, String grade, double openingamt, double receiveamt, double paymentamt, double outstandingamt, String phone, Agent agent) {
         this.custname = custname;
         this.custcity = custcity;
         this.workingarea = workingarea;
@@ -49,7 +48,7 @@ public class Customer {
         this.paymentamt = paymentamt;
         this.outstandingamt = outstandingamt;
         this.phone = phone;
-        this.agentcode = agentcode;
+        this.agent = agent;
     }
 
     //***** Getters and Setters *****//
@@ -141,11 +140,11 @@ public class Customer {
         this.phone = phone;
     }
 
-    public long getAgentcode() {
-        return agentcode;
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public void setAgentcode(long agentcode) {
-        this.agentcode = agentcode;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }

@@ -83,4 +83,12 @@ public class Agent {
     public void setCountry(String country) {
         this.country = country;
     }
+
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
+    }
 }

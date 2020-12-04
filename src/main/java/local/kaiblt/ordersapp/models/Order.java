@@ -14,7 +14,6 @@ public class Order {
 
     private double ordamount;
     private double advanceamaount;
-    private long custcode;
     private String orderdescription;
 
     //***** Table Relationships *****//
@@ -37,11 +36,11 @@ public class Order {
         //default constructor for JPA
     }
 
-    public Order(double ordamount, double advanceamaount, long custcode, String orderdescription) {
+    public Order(double ordamount, double advanceamaount, Customer customer, String orderdescription) {
         this.ordamount = ordamount;
         this.advanceamaount = advanceamaount;
-        this.custcode = custcode;
         this.orderdescription = orderdescription;
+        this.customer = customer;
     }
 
     //***** Getters and Setters *****//
@@ -69,19 +68,27 @@ public class Order {
         this.advanceamaount = advanceamaount;
     }
 
-    public long getCustcode() {
-        return custcode;
-    }
-
-    public void setCustcode(long custcode) {
-        this.custcode = custcode;
-    }
-
     public String getOrderdescription() {
         return orderdescription;
     }
 
     public void setOrderdescription(String orderdescription) {
         this.orderdescription = orderdescription;
+    }
+
+    public Set<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(Set<Payment> payments) {
+        this.payments = payments;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }
