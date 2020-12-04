@@ -10,10 +10,10 @@ public class Order {
     //***** Primary Key *****//
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long ordernum;
+    private long ordnum;
 
     private double ordamount;
-    private double advanceamaount;
+    private double advanceamount;
     private String orderdescription;
 
     //***** Table Relationships *****//
@@ -26,8 +26,8 @@ public class Order {
     //Many to many rel with Payments Table
     @ManyToMany
     @JoinTable(name = "orderspayments",
-        joinColumns = @JoinColumn(name = "ordernum"),
-        inverseJoinColumns = @JoinColumn(name = "custcode"))
+        joinColumns = @JoinColumn(name = "ordnum"),
+        inverseJoinColumns = @JoinColumn(name = "paymentid"))
     private Set<Payment> payments = new HashSet<>();
 
 
@@ -38,18 +38,18 @@ public class Order {
 
     public Order(double ordamount, double advanceamaount, Customer customer, String orderdescription) {
         this.ordamount = ordamount;
-        this.advanceamaount = advanceamaount;
+        this.advanceamount = advanceamaount;
         this.orderdescription = orderdescription;
         this.customer = customer;
     }
 
     //***** Getters and Setters *****//
     public long getOrdernum() {
-        return ordernum;
+        return ordnum;
     }
 
     public void setOrdernum(long ordernum) {
-        this.ordernum = ordernum;
+        this.ordnum = ordernum;
     }
 
     public double getOrdamount() {
@@ -61,11 +61,11 @@ public class Order {
     }
 
     public double getAdvanceamaount() {
-        return advanceamaount;
+        return advanceamount;
     }
 
     public void setAdvanceamaount(double advanceamaount) {
-        this.advanceamaount = advanceamaount;
+        this.advanceamount = advanceamaount;
     }
 
     public String getOrderdescription() {
